@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chainbg</title>
+</head>
+
+<body>
+    <div style="transition: all 1s ;">asd</div>
+</body>
+
+<script>
+    let div = document.querySelector('div')
+
+    function changColor() {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                res(div)
+            }, 2000);
+        });
+    }
+
+    changColor()
+        .then((div) => {
+            div.style.backgroundColor = 'red'
+            return div
+        })
+        .then((div) => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    div.style.backgroundColor = 'green'
+                    res(div)
+                }, 3000);
+            })
+        })
+        .then((div) => {
+            setTimeout(() => {
+                div.style.width = '200px'
+            }, 2000);
+        })
+</script>
+
+</html>
